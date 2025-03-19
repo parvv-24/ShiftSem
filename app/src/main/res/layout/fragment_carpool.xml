@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".CarpoolFragment"
+    android:padding="10dp">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Carpool Coming Soon!!"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="-176dp" />
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/topC"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_gravity="top"
+            android:background="@drawable/bar_background"
+            app:itemActiveIndicatorStyle="@style/Widget.MaterialComponents.AppBarLayout.Primary"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            app:labelVisibilityMode="selected"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:menu="@menu/menu_top_bar">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="   Carpool"
+                android:textAlignment="gravity"
+                android:textColor="@android:color/white"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="496dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topC"
+            tools:layout_editor_absoluteX="-41dp"
+            />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

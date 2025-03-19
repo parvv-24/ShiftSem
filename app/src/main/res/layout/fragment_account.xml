@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FBFBFB"
+    tools:context=".AccountFragment"
+    android:padding="10dp">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/topA"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            android:layout_gravity="top"
+            android:background="@drawable/bar_background"
+            app:itemActiveIndicatorStyle="@style/Widget.MaterialComponents.AppBarLayout.Primary"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            app:labelVisibilityMode="selected"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:menu="@menu/menu_top_bar">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="   My Account"
+                android:textAlignment="gravity"
+                android:textColor="@android:color/white"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <Button
+            android:id="@+id/logoutbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/nav_background"
+            android:backgroundTint="@color/darkblue"
+            android:gravity="bottom"
+            android:text="Logout"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topA" />
+
+        <TextView
+            android:id="@+id/userdetails"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="110dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>
