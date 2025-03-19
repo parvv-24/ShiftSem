@@ -41,9 +41,7 @@
                 android:textStyle="bold" />
         </com.google.android.material.appbar.AppBarLayout>
 
-        <!-- Upcoming Section -->
 
-        <!-- Moving Service & Calendar Cards -->
 
         <LinearLayout
             android:id="@+id/linearLayout2"
