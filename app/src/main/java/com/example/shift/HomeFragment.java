@@ -7,12 +7,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Random;
 
 public class HomeFragment extends Fragment {
 
@@ -27,6 +34,17 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        TextView tipText = view.findViewById(R.id.tip_text);
+
+
+        String[] tips = {
+                "Tip: Book early to secure your slot!",
+                "Tip: Check your booking history for past orders.",
+                "Tip: Use Carpool to save on rides!"
+        };
+        int randomIndex = new Random().nextInt(tips.length);
+        tipText.setText(tips[randomIndex]);
 
         // Moving Service Card
         CardView movingServiceCard = view.findViewById(R.id.cardMovingService);
@@ -87,5 +105,16 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getActivity(), "No calendar app found", Toast.LENGTH_SHORT).show();
             }
         });
+        CardView expenseCalculatorCard = view.findViewById(R.id.card_expense_calculator);
+        if (expenseCalculatorCard == null) {
+            Log.e(TAG, "Expense Calculator Card not found!");
+            Toast.makeText(getActivity(), "Expense Calculator Card not found", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        expenseCalculatorCard.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(view);
+            navController.navigate(R.id.action_homeFragment_to_expenseCalculatorFragment);
+        });
+
     }
 }

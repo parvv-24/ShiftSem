@@ -1,88 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".newBookingFragment">
+    android:background="#FBFBFB">
 
-    <!-- Header -->
-    <TextView
-        android:id="@+id/header"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Book a Courier"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
-    <!-- Source Input -->
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_revert"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="New Booking"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/source_layout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:hint="Source Location">
-
+        android:hint="Source">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/source_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Destination Input -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/destination_layout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/source_layout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:hint="Destination Location">
-
+        android:hint="Destination">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/destination_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Date Picker -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/date_layout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/destination_layout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:hint="Pick-up Date">
-
+        android:hint="Date">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/date_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusable="false"
-            android:cursorVisible="false" />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Number of Boxes -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/boxes_layout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/date_layout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:hint="Number of Boxes">
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/boxes_input"
             android:layout_width="match_parent"
@@ -90,16 +70,12 @@
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Submit Button -->
     <Button
         android:id="@+id/submit_button"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Book Courier"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boxes_layout" />
+        android:backgroundTint="@color/darkblue"
+        android:layout_marginTop="16dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

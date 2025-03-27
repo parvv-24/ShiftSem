@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,6 +35,7 @@ public class newBookingFragment extends Fragment {
         dateInput = view.findViewById(R.id.date_input);
         boxesInput = view.findViewById(R.id.boxes_input);
         Button submitButton = view.findViewById(R.id.submit_button);
+        ImageButton backButton = view.findViewById(R.id.back_button);
 
         dateInput.setOnClickListener(v -> showDatePickerDialog());
 
@@ -50,7 +52,6 @@ public class newBookingFragment extends Fragment {
                         "Courier booked from " + source + " to " + destination + " on " + date + " with " + boxes + " boxes",
                         Toast.LENGTH_LONG).show();
 
-                // Pass data back to BookFragment
                 Bundle args = new Bundle();
                 args.putString("source", source);
                 args.putString("destination", destination);
@@ -58,8 +59,13 @@ public class newBookingFragment extends Fragment {
                 args.putString("boxes", boxes);
 
                 NavController navController = Navigation.findNavController(view);
-                navController.navigate(R.id.Book_menu, args); // Navigate back to BookFragment with data
+                navController.navigate(R.id.Book_menu, args);
             }
+        });
+
+        backButton.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(view);
+            navController.navigate(R.id.Book_menu); // Navigate back to BookFragment
         });
     }
 

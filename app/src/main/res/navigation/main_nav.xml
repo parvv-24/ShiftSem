@@ -9,34 +9,29 @@
         android:id="@+id/Home_menu"
         android:name="com.example.shift.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_expenseCalculatorFragment"
+            app:destination="@id/expenseCalculatorFragment" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/Book_menu"
         android:name="com.example.shift.BookFragment"
         android:label="fragment_book"
         tools:layout="@layout/fragment_book">
-        <argument
-            android:name="source"
-            app:argType="string"
-            android:defaultValue="" />
-        <argument
-            android:name="destination"
-            app:argType="string"
-            android:defaultValue="" />
-        <argument
-            android:name="date"
-            app:argType="string"
-            android:defaultValue="" />
-        <argument
-            android:name="boxes"
-            app:argType="string"
-            android:defaultValue="" />
         <action
             android:id="@+id/action_bookFragment_to_newBookingFragment"
             app:destination="@id/newBookingFragment"
             app:popUpTo="@id/Book_menu"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_bookFragment_to_bookingHistoryFragment"
+            app:destination="@id/bookingHistoryFragment"
+            app:popUpTo="@id/Book_menu"
+            app:popUpToInclusive="false" />
+
     </fragment>
 
     <fragment
@@ -44,6 +39,12 @@
         android:name="com.example.shift.newBookingFragment"
         android:label="fragment_new_booking"
         tools:layout="@layout/fragment_new_booking" />
+
+    <fragment
+        android:id="@+id/bookingHistoryFragment"
+        android:name="com.example.shift.BookingHistoryFragment"
+        android:label="fragment_booking_history"
+        tools:layout="@layout/fragment_booking_history" />
 
     <fragment
         android:id="@+id/Carpool_menu"
@@ -56,4 +57,9 @@
         android:name="com.example.shift.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/expenseCalculatorFragment"
+        android:name="com.example.shift.ExpenseCalculatorFragment"
+        android:label="fragment_expense_calculator"
+        tools:layout="@layout/fragment_expense_calculator" />
 </navigation>

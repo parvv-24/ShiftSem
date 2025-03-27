@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CarpoolFragment"
+    android:background="#EBEBEB"
+
     android:padding="10dp">
 
     <!-- TODO: Update blank fragment layout -->
@@ -12,16 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Carpool Coming Soon!!"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="-176dp" />
+
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/topC"
@@ -53,15 +46,51 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.cardview.widget.CardView
+        <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginBottom="496dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:columnCount="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topC"
-            tools:layout_editor_absoluteX="-41dp"
-            />
+            app:layout_constraintVertical_bias="0.049"
+            tools:layout_editor_absoluteX="-16dp">
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_new_booking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/black_local_taxi" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Create Ride"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add a Carpool listing" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
