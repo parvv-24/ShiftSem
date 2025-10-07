@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".CarpoolFragment"
     android:background="#EBEBEB"
+    android:padding="10dp"
+    tools:context="com.example.shift.CarpoolFragment">
 
-    android:padding="10dp">
-
-    <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-
+        <!-- Unchanged AppBarLayout -->
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/topC"
             android:layout_width="match_parent"
@@ -43,57 +40,201 @@
                 android:textColor="@android:color/white"
                 android:textSize="40sp"
                 android:textStyle="bold" />
-
         </com.google.android.material.appbar.AppBarLayout>
 
+        <!-- GridLayout for Feature Cards -->
         <GridLayout
+            android:id="@+id/feature_grid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="72dp"
+            android:layout_marginTop="16dp"
             android:columnCount="2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topC"
-            app:layout_constraintVertical_bias="0.049"
-            tools:layout_editor_absoluteX="-16dp">
+            app:layout_constraintTop_toBottomOf="@id/topC">
 
+            <!-- Create Ride Card -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/card_new_booking"
-                android:layout_width="wrap_content"
+                android:id="@+id/card_create_ride"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:layout_weight="1"
+                android:layout_columnWeight="1"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@android:color/white">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="170dp"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="16dp">
 
                     <ImageView
+                        android:id="@+id/create_ride_icon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
+                        android:contentDescription="@string/create_ride_icon_description"
                         android:src="@drawable/black_local_taxi" />
 
                     <TextView
+                        android:id="@+id/create_ride_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Create Ride"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="8dp"
+                        android:text="@string/create_ride_title"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnSurface" />
 
                     <TextView
+                        android:id="@+id/create_ride_description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Add a Carpool listing" />
+                        android:layout_marginTop="4dp"
+                        android:text="@string/create_ride_description"
+                        android:textSize="14sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
+            <!-- Find Rides Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_find_rides"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_columnWeight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@android:color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/find_rides_icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@string/find_rides_icon_description"
+                        android:src="@drawable/ic_search_rides" />
+
+                    <TextView
+                        android:id="@+id/find_rides_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/find_rides_title"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:id="@+id/find_rides_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/find_rides_description"
+                        android:textSize="14sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- My Bookings Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_my_bookings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_columnWeight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@android:color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/my_bookings_icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@string/my_bookings_icon_description"
+                        android:src="@drawable/ic_bookings" />
+
+                    <TextView
+                        android:id="@+id/my_bookings_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/my_bookings_title"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:id="@+id/my_bookings_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/my_bookings_description"
+                        android:textSize="14sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Ride History Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_ride_history"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_columnWeight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@android:color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/ride_history_icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@string/ride_history_icon_description"
+                        android:src="@drawable/ic_history" />
+
+                    <TextView
+                        android:id="@+id/ride_history_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/ride_history_title"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:id="@+id/ride_history_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/ride_history_description"
+                        android:textSize="14sp"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
         </GridLayout>
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </FrameLayout>

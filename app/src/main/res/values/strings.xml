@@ -13,4 +13,26 @@
     <string name="login_failed">"Login failed"</string>
     <string name="select_source">Select Source</string>
     <string name="select_destination">Select Destination</string>
+    <!-- General -->
+    <string name="feature_icon_description">Feature Icon</string>
+
+    <!-- Create Ride -->
+    <string name="create_ride_title">Create Ride</string>
+    <string name="create_ride_description">Add a new carpool listing</string>
+    <string name="create_ride_icon_description">Create Ride Icon</string>
+
+    <!-- Find Rides -->
+    <string name="find_rides_title">Find Rides</string>
+    <string name="find_rides_description">Browse available carpool rides</string>
+    <string name="find_rides_icon_description">Find Rides Icon</string>
+
+    <!-- My Bookings -->
+    <string name="my_bookings_title">My Bookings</string>
+    <string name="my_bookings_description">Manage your active bookings</string>
+    <string name="my_bookings_icon_description">My Bookings Icon</string>
+
+    <!-- Ride History -->
+    <string name="ride_history_title">Ride History</string>
+    <string name="ride_history_description">View your past carpool rides</string>
+    <string name="ride_history_icon_description">Ride History Icon</string>
 </resources>

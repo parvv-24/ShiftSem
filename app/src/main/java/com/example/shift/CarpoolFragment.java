@@ -1,15 +1,21 @@
 package com.example.shift;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+
+import com.example.shift.databinding.FragmentCarpoolBinding;
+import com.example.shift.model.CarpoolFeature;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,28 +24,17 @@ import android.widget.Toast;
  */
 public class CarpoolFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private FragmentCarpoolBinding binding;
 
     public CarpoolFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CarpoolFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static CarpoolFragment newInstance(String param1, String param2) {
         CarpoolFragment fragment = new CarpoolFragment();
         Bundle args = new Bundle();
@@ -61,20 +56,71 @@ public class CarpoolFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_carpool, container, false);
+        binding = FragmentCarpoolBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setupFeatureCards();
+    }
 
-        androidx.cardview.widget.CardView createRideCard = view.findViewById(R.id.card_new_booking);
-        if (createRideCard != null) {
-            createRideCard.setOnClickListener(v -> {
-                Toast.makeText(getActivity(), "Carpool coming soon", Toast.LENGTH_SHORT).show();
-            });
-        } else {
-            Toast.makeText(getActivity(), "Create Ride card not found", Toast.LENGTH_SHORT).show();
+    private void setupFeatureCards() {
+        // Define feature data using CarpoolFeature
+        List<CarpoolFeature> features = new ArrayList<>();
+        features.add(new CarpoolFeature(
+                getString(R.string.create_ride_title),
+                getString(R.string.create_ride_description),
+                R.drawable.black_local_taxi,
+                getString(R.string.create_ride_icon_description),
+                v -> Toast.makeText(getActivity(), "Create Ride coming soon", Toast.LENGTH_SHORT).show()
+        ));
+        features.add(new CarpoolFeature(
+                getString(R.string.find_rides_title),
+                getString(R.string.find_rides_description),
+                R.drawable.ic_search_rides,
+                getString(R.string.find_rides_icon_description),
+                v -> Toast.makeText(getActivity(), "Find Rides coming soon", Toast.LENGTH_SHORT).show()
+        ));
+        features.add(new CarpoolFeature(
+                getString(R.string.my_bookings_title),
+                getString(R.string.my_bookings_description),
+                R.drawable.ic_bookings,
+                getString(R.string.my_bookings_icon_description),
+                v -> Toast.makeText(getActivity(), "My Bookings coming soon", Toast.LENGTH_SHORT).show()
+        ));
+        features.add(new CarpoolFeature(
+                getString(R.string.ride_history_title),
+                getString(R.string.ride_history_description),
+                R.drawable.ic_history,
+                getString(R.string.ride_history_icon_description),
+                v -> Toast.makeText(getActivity(), "Ride History coming soon", Toast.LENGTH_SHORT).show()
+        ));
+
+        // Map features to CardViews
+        CardView[] cardViews = new CardView[]{
+                binding.cardCreateRide,
+                binding.cardFindRides,
+                binding.cardMyBookings,
+                binding.cardRideHistory
+        };
+
+        // Set click listeners and verify cards
+        for (int i = 0; i < cardViews.length; i++) {
+            CardView card = cardViews[i];
+            CarpoolFeature feature = features.get(i);
+            if (card != null) {
+                card.setOnClickListener(feature.getOnClickListener());
+            } else {
+                Toast.makeText(getActivity(), feature.getTitle() + " card not found", Toast.LENGTH_SHORT).show();
+            }
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

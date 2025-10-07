@@ -35,25 +35,5 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
-        //        bottomNavigationView = findViewById(R.id.bottom_nav);
-        //        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-        //            @Override
-        //            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        //                int id = item.getItemId();
-        //
-        //                if (id==R.id.Home_menu){
-        //                    Toast.makeText(MainActivity.this,"Home",Toast.LENGTH_SHORT).show();
-        //                }
-        //                else if (id==R.id.Book_menu){
-        //                    Toast.makeText(MainActivity.this,"Booking",Toast.LENGTH_SHORT).show();
-        //                }
-        //                else if (id==R.id.Carpool_menu){
-        //                    Toast.makeText(MainActivity.this,"Taxi",Toast.LENGTH_SHORT).show();
-        //                }else if (id==R.id.Account_menu){
-        //                    Toast.makeText(MainActivity.this,"Profile",Toast.LENGTH_SHORT).show();
-        //                }
-        //                return true;
-        //            }
-        //        });
     }
 }
